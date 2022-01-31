@@ -49,6 +49,25 @@ class CartController extends Controller
         ]);
     }
 
+    public function actionDiscount()
+    {
+        $model = new DiscountForm();
+        Yii::debug("postData: " . var_export(Yii::$app->request->post()));
+        Yii::debug("getData: " . var_export(Yii::$app->request->get()));
+        if($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            return $this->render('summary', [
+                'total' => $this->sumTotal(),
+                'discountTotal' => $this->sumDiscountTotal($model->discount_per, $model->discount_amount)
+            ]);
+        }
+        $model->discount_per = 0;
+        $model->discount_amount= 0;
+        return $this->render('discount', [
+            'model' => $model,
+        ]);
+    }    
+
     /**
      * Displays a single CartProducts model.
      * @param int $id ID
