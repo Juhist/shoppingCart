@@ -68,6 +68,39 @@ class CartController extends Controller
         ]);
     }    
 
+    private function sumTotal()
+    {
+        $total = 0;
+        $model = new CartProducts;
+        $products = $model->find()->all();
+        if(!empty($products)) foreach($products as $product)
+        {
+            $total += $product->count * $product->cost;
+        }
+
+        return $total;
+    }
+
+    private function sumDiscountTotal($discount_per, $discount_amount)
+    {
+        $discountTotal = 0;
+        $model = new CartProducts;
+        $products = $model->find()->all();
+        if(!empty($products)) foreach($products as $product)
+        {
+            if($product->is_special_offer == "False"){
+                $discountTotal += $product->count * ($product->cost * (100-$discount_per)/100);
+            }
+            else{
+                $discountTotal += $product->count * $product->cost;   
+            }
+        }
+        $discountTotal -= $discount_amount;
+        if($discountTotal<0) $discountTotal = 0;
+
+        return $discountTotal;
+    }        
+
     /**
      * Displays a single CartProducts model.
      * @param int $id ID
