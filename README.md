@@ -21,3 +21,16 @@ kosárba" adatok megadásával), legyen megadható a kosárra vonatkozó
 százalékos kedvezmény, és a felületen legyen látható a kosárérték
 valamint a végösszeg (illetve a hozzáadott tételek, amiket lehessen
 törölni).
+
+Telepítés:
+1. git clone https://github.com/Juhist/shoppingCart.git
+2. cd shoppingCart
+3. yiibasic.sql
+4. cd shoppingCart
+5. php yii serve
+6. composer install
+7. php yii serve
+8. Kezdő oldal megnyitása http://localhost:8080/index.php
+9. Belépés után a kosár tartalmának szerkeztése (felvitel, módosítás, törlés)
+10. Véglegesítés után a kedvezmények megadása (%-os kezdvezmény, ezt követő egyéb levonandó összeg)
+11. Kosár tartalmának és a kedvezmények utáni összeg megjelenítése
