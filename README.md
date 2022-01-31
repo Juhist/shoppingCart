@@ -25,12 +25,11 @@ törölni).
 Telepítés:
 1. git clone https://github.com/Juhist/shoppingCart.git
 2. cd shoppingCart
-3. yiibasic.sql
-4. cd shoppingCart
-5. php yii serve
-6. composer install
-7. php yii serve
-8. Kezdő oldal megnyitása http://localhost:8080/index.php
-9. Belépés után a kosár tartalmának szerkeztése (felvitel, módosítás, törlés)
-10. Véglegesítés után a kedvezmények megadása (%-os kezdvezmény, ezt követő egyéb levonandó összeg)
-11. Kosár tartalmának és a kedvezmények utáni összeg megjelenítése
+3. Adatbázis import: yiibasic.sql
+4. cd shoppingcart
+5. composer install
+6. php yii serve
+7. Kezdő oldal megnyitása http://localhost:8080/index.php
+8. Felületen a kosár tartalmának szerkesztése (felvitel, módosítás, törlés)
+9. Véglegesítés után a kedvezmények megadása (%-os kzdvezmény (csak nem akciós termékekre), ezt követő egyéb levonandó összeg (utalvány, egyenleg, stb))
+10. Kosár tartalmának és a levont kedvezmények utáni összeg megjelenítése
